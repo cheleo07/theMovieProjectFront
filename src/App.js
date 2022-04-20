@@ -1,6 +1,8 @@
 import React from "react";
 import './App.css';
 import Film from './Film';
+import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
 
 class App extends React.Component {
 
@@ -36,25 +38,29 @@ class App extends React.Component {
             })
     }
 
-    render() {
-        const { DataisLoaded, items } = this.state;
-        console.log("items ", items)
-        if (!DataisLoaded){
-            return <div>
-                <h1> Please wait some time.... </h1> </div> ;
-        } else {
-            return (
-                <div className = "App">
-                    <h1> Fetch data from an api in react </h1>
-                    {items.results.map(function (object) {
-                        return <Film object={object}></Film>
-                    })}
-                    Page <button> { items.page} </button> sur {items.total_pages} <br/>
-                </div>
-            );
-        }
+  render() {
+    const { DataisLoaded, items } = this.state;
+    console.log("items ", items)
+    if (!DataisLoaded){
+        return <div>
+            <h1> Please wait some time.... </h1> </div> ;
+    } else {
+        return (
+            <div className = "App">
+              <h1> Fetch data from an api in react </h1>
+                Page : { items.page} <br/>
+                <Container maxWidth="md" component="main">
+                    <Grid container spacing={5} >
+                        {items.results.map(function (object) {
+                            return <Film object={object}></Film>
+                        })}
+                    </Grid>
+                </Container>
+                Total pages : { items.total_pages} <br/>
+            </div>
+        );
     }
+  }
 }
 
 export default App;
-
