@@ -18,6 +18,7 @@ class Film extends React.Component {
             'original_language': this.props.object.original_language
        };
     }
+
     render() {
         return (
             <Grid item
