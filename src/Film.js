@@ -2,7 +2,8 @@ import React from "react";
 import './Film.css';
 import Grid from "@mui/material/Grid";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import {Box, Button, Card, CardActions, CardContent, CardHeader, Typography} from "@mui/material";
+import Comment from './Comment';
+import {Box, Card, CardContent, CardHeader, Typography} from "@mui/material";
 
 class Film extends React.Component {
     constructor(props) {
@@ -23,23 +24,22 @@ class Film extends React.Component {
                   key={this.state.original_title}
                   xs={12}
                   sm={this.state.original_title === 'Film' ? 12 : 6}
-                  md={4}
             >
-                <Card style={{ height: '80rem', textOverflow: "…", overflow: 'hidden'}}>
+                <Card style={{ height: '55rem', textOverflow: "…", overflow: 'hidden', backgroundColor:  'darkgrey', justifyContent:'fit-content'}}>
                     <CardHeader
                         title={this.state.original_title}
-                        subheader={"Original language : " + this.state.original_language}
-                        titleTypographyProps={{ align: 'center' }}
+                        subheader={"Langue d'origine : " + this.state.original_language}
+                        titleTypographyProps={{ align: 'center', color: 'white'}}
                         action={<FavoriteBorderIcon />}
                         subheaderTypographyProps={{
                             align: 'center',
-                            color: 'blue'
+                            color: 'whitesmoke'
                         }}
                         sx={{
                             backgroundColor: (theme) =>
-                                theme.palette.mode === 'light'
+                                theme.palette.mode === 'black'
                                     ? theme.palette.grey[200]
-                                    : theme.palette.grey[700],
+                                    : theme.palette.grey[700]
                         }}
                     />
                     <CardContent>
@@ -48,9 +48,10 @@ class Film extends React.Component {
                                 display: 'flex',
                                 justifyContent: 'center',
                                 alignItems: 'baseline',
-                                mb: 2,
+                                mb: 2
                             }}
                         >
+
                             <Typography component="h2" variant="h3" color="text.primary">
                                 <img src={"https://image.tmdb.org/t/p/w500"+this.state.backdrop_path} alt={"Not found"}/>
                             </Typography>
@@ -63,18 +64,14 @@ class Film extends React.Component {
                             {this.state.overview}
                         </Typography>
                     </CardContent>
-                    <CardActions>
-                        <Button
-                            fullWidth
-                            variant={'outlined'}
-                        >
-
-                        </Button>
-                    </CardActions>
+                    <button onClick={this.handleClick} className="comment"><span>✉</span></button>
                 </Card>
             </Grid>
 
-        );
+        )
     }
+
 }
 export default Film;
+
+

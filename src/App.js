@@ -3,6 +3,8 @@ import './App.css';
 import Film from './Film';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
+import Rate from "./Rate";
+
 
 class App extends React.Component {
 
@@ -46,17 +48,19 @@ class App extends React.Component {
             <h1> Please wait some time.... </h1> </div> ;
     } else {
         return (
-            <div className = "App">
-              <h1> Fetch data from an api in react </h1>
-                Page : { items.page} <br/>
-                <Container maxWidth="md" component="main">
-                    <Grid container spacing={5} >
-                        {items.results.map(function (object) {
-                            return <Film object={object}></Film>
-                        })}
-                    </Grid>
-                </Container>
-                Total pages : { items.total_pages} <br/>
+            <div className="App">
+                <Rate
+                Films={ items.results} />
+                <div>
+                    <Container maxWidth="md" component="main">
+                        <Grid container spacing={8} >
+                            {items.results.map(function (object) {
+                                return <Film object={object}></Film>
+                            })}
+                        </Grid>
+                        Total pages : { items.total_pages} <br/>
+                    </Container>
+                </div>
             </div>
         );
     }

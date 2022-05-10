@@ -1,5 +1,11 @@
 .Film {
     align-items: center;
     text-align: justify;
-    color: White;
+    color: black;
+}
+
+.comment {
+    font-size: 3.5rem;
+    background-color: transparent;
+    border-color: transparent;
 }
