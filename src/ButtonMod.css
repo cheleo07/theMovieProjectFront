@@ -1,15 +1,11 @@
-.Film {
-    align-items: center;
-    text-align: justify;
-    color: black;
-}
- #like-button{
+#comment{
     font-size: 3.5rem;
     background-color: transparent;
     border-color: transparent;
 }
 
-#like-button:hover {
+
+#comment:hover{
     background-color: #282c34;
     color: whitesmoke;
     border-radius: 2rem;

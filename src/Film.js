@@ -2,8 +2,8 @@ import React from "react";
 import './Film.css';
 import Grid from "@mui/material/Grid";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import Comment from './Comment';
 import {Box, Card, CardContent, CardHeader, Typography} from "@mui/material";
+import ButtonMod from "./ButtonMod";
 
 class Film extends React.Component {
     constructor(props) {
@@ -15,9 +15,10 @@ class Film extends React.Component {
             'overview': this.props.object.overview,
             'release_date': this.props.object.release_date,
             'vote_average': this.props.object.vote_average,
-            'original_language': this.props.object.original_language
+            'original_language': this.props.object.original_language,
        };
     }
+
 
     render() {
         return (
@@ -26,12 +27,15 @@ class Film extends React.Component {
                   xs={12}
                   sm={this.state.original_title === 'Film' ? 12 : 6}
             >
+
                 <Card style={{ height: '55rem', textOverflow: "…", overflow: 'hidden', backgroundColor:  'darkgrey', justifyContent:'fit-content'}}>
                     <CardHeader
                         title={this.state.original_title}
                         subheader={"Langue d'origine : " + this.state.original_language}
                         titleTypographyProps={{ align: 'center', color: 'white'}}
-                        action={<FavoriteBorderIcon />}
+                        action={<button id="like-button">
+                            <FavoriteBorderIcon/>
+                        </button>}
                         subheaderTypographyProps={{
                             align: 'center',
                             color: 'whitesmoke'
@@ -43,7 +47,9 @@ class Film extends React.Component {
                                     : theme.palette.grey[700]
                         }}
                     />
+
                     <CardContent>
+                        <ButtonMod/>
                         <Box
                             sx={{
                                 display: 'flex',
@@ -52,7 +58,6 @@ class Film extends React.Component {
                                 mb: 2
                             }}
                         >
-
                             <Typography component="h2" variant="h3" color="text.primary">
                                 <img src={"https://image.tmdb.org/t/p/w500"+this.state.backdrop_path} alt={"Not found"}/>
                             </Typography>
@@ -65,13 +70,10 @@ class Film extends React.Component {
                             {this.state.overview}
                         </Typography>
                     </CardContent>
-                    <button onClick={this.handleClick} className="comment"><span>✉</span></button>
                 </Card>
             </Grid>
-
         )
     }
-
 }
 export default Film;
 

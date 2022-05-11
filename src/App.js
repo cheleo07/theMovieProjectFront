@@ -69,7 +69,6 @@ class App extends React.Component {
     } else {
         return (
             <div className="App">
-                <h1> Fetch data from an api in react </h1>
                 Page : { items.page} <br/>
 
                 <Rate
