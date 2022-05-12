@@ -8,8 +8,6 @@ import {Pagination, PaginationItem, Stack} from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-
-
 class App extends React.Component {
 
     // Constructor

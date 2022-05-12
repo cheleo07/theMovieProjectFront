@@ -16,6 +16,7 @@ class Film extends React.Component {
             'release_date': this.props.object.release_date,
             'vote_average': this.props.object.vote_average,
             'original_language': this.props.object.original_language,
+            'nb_likes': this.props.object.nb_likes
        };
     }
 
@@ -31,7 +32,7 @@ class Film extends React.Component {
                 <Card style={{ height: '55rem', textOverflow: "…", overflow: 'hidden', backgroundColor:  'darkgrey', justifyContent:'fit-content'}}>
                     <CardHeader
                         title={this.state.original_title}
-                        subheader={"Langue d'origine : " + this.state.original_language}
+                        subheader={"Nombre de likes : " + this.state.nb_likes}
                         titleTypographyProps={{ align: 'center', color: 'white'}}
                         action={<button id="like-button">
                             <FavoriteBorderIcon/>
