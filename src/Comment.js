@@ -1,30 +1,44 @@
 import React from 'react';
+import { useState} from "react";
+
 import './Comment.css';
+import CheckboxList from "./CheckboxList";
 
 export default function Comment(props) {
+
     return(
         <div className="modal-container" style={{
             transform: props.visible ? 'translateY(0vh)' : 'translateY(-100vh)',
             opacity: props.visible ? '1' : '0'
         }}
         >
-            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consectetur corporis ducimus el
-                    igendi esse expedita, facilis fugiat fugit iste laboriosam laudantium nemo non nost
-                    rum optio quidem sed sint tenetur veritatis!</span><span>Adipisci aliquam autem beatae doloremqu
-                    e ducimus ea, esse, itaque magnam maxime molestias nulla officia pariatur perfer
-                    endis possimus quibusdam quos velit. A alias atque, eius eveniet praesentium quisquam q
-                    uo sint unde?</span><span>Adipisci, amet assumenda dolores ducimus, illo laboriosam libero nam nesc
-                    iunt nihil nisi, nobis quia recusandae rem! Adipisci autem et in nam rem sit, unde. Amet ducimus ei
-                  nderit sapiente em voluptatum? Numquam, quibusdam.</span></p>
-
-            <button onClick={props.cache}>X</button>
-            <form className="form-comment">
+            <form className="form-comment" >
                 <label>
-                    Nom :
-                    <input type="text" name="name" />
+                    Pseudo :  <input type="text" name="pseudo" value="uwu"  required/>
                 </label>
-                <input type="submit" value="Poster"/>
+                <br/>
+                <label id="review">
+                    Commentaire :  <input type="text" name="review"  required />
+                </label>
+                <br/>
+                <label>
+                    Note :  <input type="number" name="rate"  />
+                </label>
+                <br/>
+
+                <button className="btn-comment" onClick={props.cache}>X</button> <input className="btn-comment" type="submit" value="Poster"/>
             </form>
         </div>
     )
+
 }
+
+
+// const [input, setInput] = useState('')
+//
+//
+//     this.handleChange = (event, value) => {
+//         //  this.setState({
+//          //   value
+//         //});
+//     };

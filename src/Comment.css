@@ -5,8 +5,32 @@
     border : 1px solid #ccc;
     box-shadow: 1px 1px 1px black;
     padding: 16px;
-    width: 300px;
+    width: 450px;
     box-sizing: border-box;
     transition: all 0.3s ease-out;
-    margin-left: 40px;
+    margin-left: -50px;
+    font-size: 1rem;
+    border-radius: 2px;
+}
+
+.form-content {
+    text-align: left;
+}
+
+#review{
+    width: 100px;
+    height: 50px;
+}
+
+.btn-comment{
+    font-size: 1rem;
+    background-color: cornflowerblue;
+    color: whitesmoke;
+    inline-size: fit-content;
+    text-shadow: 2px 3px 0px #282c34;
+    border-radius: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
 }
