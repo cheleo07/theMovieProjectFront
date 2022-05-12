@@ -16,10 +16,28 @@ class Film extends React.Component {
             'release_date': this.props.object.release_date,
             'vote_average': this.props.object.vote_average,
             'original_language': this.props.object.original_language,
-            'nb_likes': this.props.object.nb_likes
+            'nb_likes': this.props.object.nb_likes,
+            'id': this.props.object.id
        };
-    }
 
+        this.likeMovie = () => {
+            const requestOptions = {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': 'http://localhost:3000/',
+                    'Access-Control-Allow-Credentials' : 'true'
+                }
+            };
+            fetch(
+                "http://localhost:3005/api/like/"+this.state.id, requestOptions)
+                .then((res) => res.json())
+                .then((json) => {
+                    this.setState({
+                        'nb_likes': json.nb_likes
+                    });
+                })
+        };
+    }
 
     render() {
         return (
@@ -35,7 +53,7 @@ class Film extends React.Component {
                         subheader={"Nombre de likes : " + this.state.nb_likes}
                         titleTypographyProps={{ align: 'center', color: 'white'}}
                         action={<button id="like-button">
-                            <FavoriteBorderIcon/>
+                            <FavoriteBorderIcon onClick={this.likeMovie}/>
                         </button>}
                         subheaderTypographyProps={{
                             align: 'center',

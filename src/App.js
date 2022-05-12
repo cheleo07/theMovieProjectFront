@@ -60,7 +60,7 @@ class App extends React.Component {
 
   render() {
     const { DataisLoaded, items } = this.state;
-    console.log("items ", items)
+    // console.log("items ", items)
     if (!DataisLoaded){
         return <div>
             <h1> Please wait some time.... </h1> </div> ;

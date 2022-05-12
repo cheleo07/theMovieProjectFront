@@ -10,7 +10,7 @@ class Rate extends React.Component {
     }
 
     componentDidMount() {
-        console.log("films rate : ", this.state.films);
+        //console.log("films rate : ", this.state.films);
     }
 
     render() {
