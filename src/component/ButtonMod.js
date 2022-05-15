@@ -4,10 +4,11 @@ import Comment from "./Comment";
 
 class ButtonMod extends React.Component {
 
-    constructor(){
-         super();
+    constructor(props){
+         super(props);
          this.state = {
-             visible: false
+             visible: false,
+             idMovie: this.props.idMovie
          }
      this.showModal = this.showModal.bind(this);
      this.hideModal = this.hideModal.bind(this);
@@ -28,9 +29,10 @@ class ButtonMod extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.showModal} id="comment">Commenter </button>
+                <button onClick={this.showModal} id="comment"><span>✉</span></button>
                 <Comment visible={this.state.visible}
                          cache={this.hideModal}
+                         idMovie={this.state.idMovie}
                 />
             </div>
         )

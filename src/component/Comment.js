@@ -16,8 +16,6 @@ function Comment(props) {
     const [comment, setComment] = useState(EMPTY_COMMENT);
 
     function handleSubmit(event) {
-        console.log("On submit clicked ...");
-        console.log(comment)
         event.preventDefault();
             const requestOptions = {
                 method: 'POST',
@@ -27,7 +25,7 @@ function Comment(props) {
                 body: JSON.stringify(comment)
             };
             fetch(
-                "http://localhost:3005/api/comment/"+ 453395, requestOptions)
+                "http://localhost:3005/api/comment/"+ props.idMovie, requestOptions)
                 .then((res) => res.json())
                 .then((json) => {
                     alert(JSON.stringify(json))
@@ -35,7 +33,6 @@ function Comment(props) {
     }
 
     function handleOnChange(event) {
-        // setComment(prev => { return {...prev, pseudo: pseudo}});
         event.preventDefault();
         setComment(prev => ({...prev, [event.target.name]: event.target.value}));
     }

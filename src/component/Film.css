@@ -26,9 +26,7 @@
 }
 
 .commentSection {
-    display: flex;
-    flex-direction: row;
-    padding: 4px;
+    alignment: center;
 }
 
 button:hover{
