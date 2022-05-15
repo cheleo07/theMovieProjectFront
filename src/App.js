@@ -1,9 +1,9 @@
 import React from "react";
 import './App.css';
-import Film from './Film';
+import Film from './component/Film';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import Rate from "./Rate";
+import Rate from "./component/Rate";
 import {Pagination, PaginationItem, Stack} from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -74,8 +74,8 @@ class App extends React.Component {
                 <div>
                     <Container maxWidth="md" component="main">
                         <Grid container spacing={8} >
-                            {items.results.map(function (object) {
-                                return <Film object={object}></Film>
+                            {items.results.map((object,keyItem) => {
+                                return <Film key={keyItem} object={object}/>
                             })}
                         </Grid>
                         Total pages : { items.total_pages} <br/>
