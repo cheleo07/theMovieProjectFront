@@ -28,7 +28,7 @@ class ButtonMod extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.showModal} id="comment">✉</button>
+                <button onClick={this.showModal} id="comment">Commenter </button>
                 <Comment visible={this.state.visible}
                          cache={this.hideModal}
                 />

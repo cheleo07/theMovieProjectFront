@@ -37,7 +37,19 @@ class Film extends React.Component {
                     });
                 })
         };
+
+
+
+        this.handleClick =(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            alert('click. but dont redirect...');
+
+            return false;
+        }
     }
+
+
 
     render() {
         return (
@@ -68,7 +80,10 @@ class Film extends React.Component {
                     />
 
                     <CardContent>
-                        <ButtonMod/>
+                        <div className="commentSection">
+                            <ButtonMod/>
+                            <a className="seeComment" href="./CommentPage.js" onClick={this.handleClick} >Voir les commentaires</a>
+                        </div>
                         <Box
                             sx={{
                                 display: 'flex',

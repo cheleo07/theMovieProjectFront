@@ -15,3 +15,25 @@
     border-radius: 2rem;
     inline-size: fit-content;
 }
+
+.seeComment {
+    font-size: 1rem;
+    background-color: cornflowerblue;
+    color: whitesmoke;
+    inline-size: fit-content;
+    border-radius: 2rem;
+    border-color: transparent;
+}
+
+.commentSection {
+    display: flex;
+    flex-direction: row;
+    padding: 4px;
+}
+
+button:hover{
+    background-color: #282c34;
+    color: whitesmoke;
+    border-radius: 2rem;
+    inline-size: fit-content;
+}

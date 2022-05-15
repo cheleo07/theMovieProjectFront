@@ -2,16 +2,6 @@ import React from 'react';
 import {useState} from "react";
 
 import './Comment.css';
-import CheckboxList from "./common/CheckboxList";
-
-/*interface CommentType {
-    pseudo: string;
-    date: Date;
-    texte: string;
-    note: number;
-    langue: string;
-    genre: string;
-}*/
 
 const EMPTY_COMMENT = {
     pseudo: '',
@@ -40,7 +30,7 @@ function Comment(props) {
                 "http://localhost:3005/api/comment/"+ 453395, requestOptions)
                 .then((res) => res.json())
                 .then((json) => {
-                    alert(json)
+                    alert(JSON.stringify(json))
                 })
     }
 
@@ -66,7 +56,6 @@ function Comment(props) {
                 <label> Note : </label>
                 <input type="number" name="rate" value={comment.rate} onChange={handleOnChange} />
                 <br/>
-                <CheckboxList/>
 
                 <button className="btn-comment" onClick={props.cache}>X</button>
                 <button className="btn-comment" type="button" onClick={handleSubmit}>Poster</button>
@@ -76,13 +65,3 @@ function Comment(props) {
 }
 
 export default Comment;
-
-
-// const [input, setInput] = useState('')
-//
-//
-//     this.handleChange = (event, value) => {
-//         //  this.setState({
-//          //   value
-//         //});
-//     };
