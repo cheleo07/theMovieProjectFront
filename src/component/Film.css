@@ -35,3 +35,19 @@ button:hover{
     border-radius: 2rem;
     inline-size: fit-content;
 }
+
+.limited-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 6; /* ✅ Limite à 6 lignes */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 300px;
+}
+
+.see-more {
+    color: blue;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+}

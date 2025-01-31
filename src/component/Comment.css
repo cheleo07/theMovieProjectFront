@@ -1,16 +1,23 @@
 .modal-container {
-    position: absolute;
-    color: black;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: white;
-    border : 1px solid #ccc;
+    border: 1px solid #ccc;
     box-shadow: 1px 1px 1px black;
     padding: 16px;
     width: 450px;
     box-sizing: border-box;
-    transition: all 0.3s ease-out;
-    margin-left: -50px;
-    font-size: 1rem;
+    transition: opacity 0.3s ease-out;
     border-radius: 2px;
+    z-index: 1000;
+}
+
+.modal-container.active {
+    display: block;
+    opacity: 1;
 }
 
 .form-content {

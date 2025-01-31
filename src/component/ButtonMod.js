@@ -14,13 +14,17 @@ class ButtonMod extends React.Component {
      this.hideModal = this.hideModal.bind(this);
      }
 
-     showModal = () => {
-         this.setState({
-             visible:true
-         })
-     }
+    showModal = () => {
+        console.log("Ouverture du modal");
+        console.log("this.state.idMovie " + this.state.idMovie);
 
-     hideModal = () => {
+        this.setState({ visible: true }, () => {
+            console.log("Après setState, this.state.visible:", this.state.visible);
+            this.forceUpdate(); // ✅ Forcer React à re-render
+        });
+    };
+
+    hideModal = () => {
         this.setState({
              visible:false
          })
@@ -29,7 +33,7 @@ class ButtonMod extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.showModal} id="comment"><span>✉</span></button>
+                <button onClick={this.showModal} id="comment"><span role="img">📨</span></button>
                 <Comment visible={this.state.visible}
                          cache={this.hideModal}
                          idMovie={this.state.idMovie}

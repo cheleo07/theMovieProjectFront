@@ -1,5 +1,6 @@
 import React from 'react';
 import {useState} from "react";
+import { useEffect } from "react";
 
 import './Comment.css';
 
@@ -15,21 +16,32 @@ function Comment(props) {
 
     const [comment, setComment] = useState(EMPTY_COMMENT);
 
+    useEffect(() => {
+        console.log("Le composant Comment reçoit visible:", props.visible);
+    }, [props.visible]);
+
     function handleSubmit(event) {
-        event.preventDefault();
-            const requestOptions = {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': 'http://localhost:3000/',
-                    'Access-Control-Allow-Credentials' : 'true' },
-                body: JSON.stringify(comment)
-            };
-            fetch(
-                "http://localhost:3005/api/comment/"+ props.idMovie, requestOptions)
-                .then((res) => res.json())
-                .then((json) => {
-                    alert(JSON.stringify(json))
-                })
+        event.preventDefault(); // ✅ Empêcher le rechargement de la page
+
+        console.log("Envoi du commentaire..."); // 🔴 Vérifier dans la console si cela s'affiche uniquement après le clic
+
+        if (!comment.pseudo || !comment.review) {
+            alert("Veuillez remplir tous les champs !");
+            return;
+        }
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(comment)
+        };
+
+        fetch("http://localhost:3005/api/comment/" + props.idMovie, requestOptions)
+            .then((res) => res.json())
+            .then((json) => {
+                alert(JSON.stringify(json));
+            })
+            .catch((error) => console.error("Erreur lors de l'envoi du commentaire :", error));
     }
 
     function handleOnChange(event) {
@@ -38,12 +50,9 @@ function Comment(props) {
     }
 
     return (
-        <div className="modal-container" style={{
-            transform: props.visible ? 'translateY(0vh)' : 'translateY(-100vh)',
-            opacity: props.visible ? '1' : '0'
-        }}
-        >
-            <form className="form-comment" >
+        <div className={`modal-container ${props.visible ? "active" : ""}`}>
+
+        <form className="form-comment" >
                 <label> Pseudo : </label>
                 <input type="text" name="pseudo" value={comment.pseudo} onChange={handleOnChange} required/>
                 <br/>
